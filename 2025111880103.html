@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Currículo</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        html {
+        scroll-behavior: smooth;
+        }
+
+        :root{
+        --primaria: #666778;
+        --secundaria:#575768 ;
+        --escura:#484858 ;
+        --mais-escura:#383848 ;
+        --claro:#ffffff;
+        --vidro:rgba(255, 255, 255, 0.1);
+        }
+        body {
+        background-color: var(--escura);
+        text-align: center;
+        font-size: 16px;
+        color: var(--claro);
+        }
+        .navegacao {
+        position: fixed;
+        top: 0;
+        background: rgba(30, 37, 56, 0.8);
+        width: 100%;
+        z-index: 100;
+        padding: 1.5rem;
+        }
+        .menu{
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 3rem
+
+        }
+        .menu-link{
+        text-decoration: none;
+        color: var(--claro);
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0;
+        }
+        .menu-link::after{
+        content: '';
+        height: 2px;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+        transition: width 0.5s ease;
+        }
+
+        .menu-link:hover::after {
+        width: 100%;
+        }
+        .cabecalho{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        flex-direction: column;
+        padding: 6rem 2rem;
+        }
+
+        .foto-perfil{
+        width: 350px;
+        height: 350px;
+        box-shadow: 0 0 20px rgba(26, 24, 65, 0.3);;
+        border-radius: 50%;
+        border: 4px solid var(--vidro);
+        animation: flutuar 5s ease-in-out infinite;
+        }
+        h1{
+        font-size: 3.5rem;
+        color: var(--primaria);
+        font-weight: bold;
+        margin: 20px;
+        }
+        .cabecalho-sub-titulo{
+        font-size: 1.5rem;
+        color: var(--claro);
+        }
+        #sobre{
+        padding: 6rem 2rem;
+        }
+        .sobre-titulo{
+        font-size: 3rem;
+        color: var(--claro);
+        text-align: center;
+
+        }
+        .sobre-caixa{
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: 16px;
+        border: 1px solid var(--vidro);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+        }
+        .sobre-paragrafo{
+        text-align: center;
+        font-size: 1.2rem;
+        list-style: none;
+        }
+        #habilidades{
+        padding: 6rem 2rem;
+        }
+        .contatos{
+        padding: 6rem 2rem;
+        background-color: rgb(28, 25, 25);
+        }
+        .contatos-titulo{
+        font-size: 3rem;
+        color: var(--claro);
+        text-align: center;
+        }
+        .formulario-contato{
+        max-width: 600px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        padding: 2rem;
+        border: 1px solid var(--vidro);
+        border-radius: 16px;
+        }
+        .campo-form{
+        width: 100%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        color: var(--claro);
+        border: 1px solid var(--vidro);
+        outline: none;
+
+        }
+        .campo-form:focus{
+        border-color: var(--secundaria);
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0.1);
+
+        }
+        .grupo-form{
+        margin-bottom: 1.5rem;
+        }
+        .botao-form{
+        color: var(--claro);
+        background:linear-gradient(45deg, var(--primaria), var(--secundaria));
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        transition: all 0.5 ease;
+        }
+        .botao-form:hover{
+        transform: translatey(-4px);
+        box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+        .particulas{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.3;
+        background:
+        radial-gradient(circle at 10% 90%, var(--primaria) 0%, trasnparent 20%),
+        radial-gradient(circle at 90% 80%, var(--secundaria) 0%, trasnparent 20%),
+        var(--mais-escura);
+        }
+        @keyframes flutuar{
+        0%, 100%{
+        transform: translateY(0);
+        }
+        50%{
+        transform: translateY(-20px);
+        }
+        }
+
+        #projetos{
+        padding: 6rem 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#Início" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#habilidades" class="menu-link">Habilidades</a>
+            </li>
+            <li>
+                <a href="#contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+    <main id="Início" class="cabecalho">
+        <div>
+            <img src="JoaoCarlos.png" alt="Foto de perfil" class="foto-perfil" width="150px">
+            <h1>João Carlos Peres Teles</h1>
+            <p class="cabecalho-sub-titulo">Programador Full-Stack</p>
+        </div>
+    </main>
+
+    <section id="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Sou apaixonado por tecnologia e acredito que a programação pode transformar
+                vidas. Meu objetivo é desenvolversoluções inovadoras que otimizem tarefas e facilitem o dia a dia das
+                pessoas.</p>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2 class="sobre-titulo">Projetos</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Na escola, junto com um grupo de amigos, desenvolvi um aplicativo básico para
+                cálculo de combustível de uma
+                frota de caminhões utilizando Python.<br> Minha função no projeto era analisar e corrigir erros no
+                código, garantindo seu funcionamento correto.</p>
+        </div>
+    </section>
+
+    <section id="habilidades">
+        <h2 class="sobre-titulo">Habilidades</h2>
+        <ul class="sobre-caixa">
+            <li class="sobre-paragrafo">Trabalho em equipe</li>
+            <li class="sobre-paragrafo">Ótimo raciocínio lógico</li>
+            <li class="sobre-paragrafo">Conhecimento em Python e lógica de programação</li>
+        </ul>
+    </section>
+    <section id="contato" class="contatos">
+        <h2 class="contatos-titulo">Entre em Contatos</h2>
+        <form class="formulario-contato" id="formulario-contato">
+            <div class="grupo-form">
+                <input class="campo-form" placeholder="Nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua mensagem"></textarea>
+            </div>
+            <div>
+                <button type="sumit" class="botao-form">
+                    Enviar via WhatsApp
+                </button>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
